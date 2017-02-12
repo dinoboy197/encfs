@@ -13,6 +13,9 @@ before_script:
 script:
   - make && ./checkops
   - cd ..
+  - mkdir -p /tmp/one
+  - mkdir -p /tmp/two
+  - ./build/encfs --extpass="echo test" --standard /tmp/one /tmp/two
   - ./test.sh
 
 addons:
