@@ -1,11 +1,12 @@
 language: cpp
 
-sudo: false
+sudo: true
 
 compiler:
   - clang
 
 before_script:
+  - sudo modprobe fuse
   - mkdir build
   - cd build
   - cmake ..
@@ -26,5 +27,6 @@ addons:
     packages:
       - clang
       - cmake
+      - fuse
       - libfuse-dev
 
