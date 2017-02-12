@@ -308,8 +308,8 @@ sub mount
     my $cmdline = "./build/encfs --extpass=\"echo test\" $args $raw $crypt 2>&1";
     #                                  This makes sure we get to see stderr ^
     my $status = system($cmdline);
-    ok( $status == 0, "encfs command returns 0") || BAIL_OUT("");
-    ok( -f "$raw/.encfs6.xml",  "created control file") || BAIL_OUT("");
+    ok( $status == 0, "encfs command returns 0") || BAIL_OUT("encfs returned invalid status code $status (command was $cmdline)");
+    ok( -f "$raw/.encfs6.xml",  "created control file") || BAIL_OUT(".encfs6.xml file not present; expected at $raw/.encfs6.xml");
 }
 
 # Helper function
