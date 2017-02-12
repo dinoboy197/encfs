@@ -12,12 +12,7 @@ before_script:
   - cmake ..
 
 script:
-  - make && ./checkops
-  - cd ..
-  - mkdir -p /tmp/one
-  - mkdir -p /tmp/two
-  - ./build/encfs --extpass="echo test" --standard /tmp/one /tmp/two
-  - ./test.sh
+  - make && ./checkops && cd .. && ./test.sh
 
 addons:
 
@@ -29,4 +24,3 @@ addons:
       - cmake
       - fuse
       - libfuse-dev
-
